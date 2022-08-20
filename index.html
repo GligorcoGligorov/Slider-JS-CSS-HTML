@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            Slider
+            <a href="#" id="logo-s">Code</a>
+        </div>
+        <span class="sign">
+            <a href="#" class="act">SIGN UP</a>
+        </span>
+        <span class="sign">
+            <a href="#">SIGN IN</a>
+        </span>
+    </header>
+
+
+    <div class="slider">
+
+        <div class="myslider fade" style="display: block;">
+            <div class="txt">
+                <h1>IMAGE 1</h1>
+                <p>Web Developer <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, architecto.</p>
+            </div>
+                <img src="https://cdn.pixabay.com/photo/2016/08/03/23/09/mercedes-1568085_960_720.jpg" style="width: 100%;height: 100%;" alt="">
+        </div>
+
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>IMAGE 2</h1>
+                <p>Web Developer <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, architecto.</p>
+            </div>
+            <img src="https://cdn.pixabay.com/photo/2015/11/19/21/11/atlas-1052011_960_720.jpg" style="width: 100%;height: 100%;"
+                alt="">
+        </div>
+
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>IMAGE 3</h1>
+                <p>Web Developer <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, architecto.</p>
+            </div>
+            <img src="https://cdn.pixabay.com/photo/2015/06/24/13/32/camera-820018_960_720.jpg" style="width: 100%;height: 100%;"
+                alt="">
+        </div>
+
+        
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094</a>
+        <a class="next" onclick="plusSlides(1)">&#10095</a>
+
+        <div class="dotsbox">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            
+
+        </div>
+    </div>
+    
+
+    <script src="./main.js"></script>
+</body>
+</html>
