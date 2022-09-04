@@ -61,12 +61,17 @@ header{
     position: relative;
     width: 100%;
     background: #2c3e50;
+    overflow: hidden;
 }
 .myslider{
     /* height: 655px; */
     height: 100vh;
     overflow: hidden;
     display: none;
+    pointer-events: auto;
+}
+.slider-inner{
+    pointer-events: none;
 }
 .prev, .next{
     position: absolute;
@@ -177,6 +182,8 @@ img{
     animation-duration: 30s;
     -webkit-animation-name: zoomin;
     -webkit-animation-duration: 30s;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 @keyframes zoomin{
     from{transform: scale(1,1);}

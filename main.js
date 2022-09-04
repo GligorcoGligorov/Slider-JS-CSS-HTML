@@ -1,4 +1,8 @@
-const myslide = document.querySelectorAll(".myslider"),
+const myslide = document.querySelectorAll(".myslider");
+const slider = document.querySelector(".slider");
+const innerSlider = document.querySelector(".slider-inner");
+
+
 dot = document.querySelectorAll(".dot");
 
 let counter = 1;
@@ -39,4 +43,72 @@ function slidefun(n){
     }
     myslide[counter-1].style.display = "block";
     dot[counter-1].classList.add("active")
+}
+
+let pressed = false;
+let startX = 0;
+let endX = 0;
+
+let LeftToRight = false;
+
+slider.addEventListener("mousedown", (e) => {
+    pressed = true;
+    startX = e.offsetX;
+    slider.style.cursor = "grabbing"
+
+})
+
+slider.addEventListener("mouseup", (e) => {
+    slider.style.cursor = "default"
+    pressed = false;
+    endX = e.offsetX;
+
+})
+
+slider.addEventListener("mousemove", (e)=>{
+    if(pressed){
+        isLeftToRight(startX, endX);
+        slidefun(counter)
+        resetTimer();
+        pressed = false;
+
+    }
+})
+// Phone
+let Ppressed = false;
+let PstartX = 0;
+let PendX = 0;
+
+slider.addEventListener("touchstart", (e) => {
+
+    PstartX = e.changedTouches[0].screenX;
+
+})
+
+slider.addEventListener("touchend", (e) => {
+    
+    PendX = e.changedTouches[0].screenX;
+    Ppressed = true
+
+
+})
+
+slider.addEventListener("touchmove", (e) => {
+    if (Ppressed) {
+        isLeftToRight(PstartX, PendX);
+        slidefun(counter)
+        resetTimer();
+        Ppressed = false;
+
+    }
+})
+
+function isLeftToRight(a,b){
+    if(a-b > 0){
+        LeftToRight = false;
+        counter++;
+    }else{
+        LeftToRight = true;
+        counter--;
+    }
 }
