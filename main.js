@@ -67,8 +67,8 @@ slider.addEventListener("mouseup", (e) => {
 slider.addEventListener("mousemove", (e)=>{
     if(pressed){
         isLeftToRight(startX, endX);
-        console.log(startX)
-        console.log(endX)
+        slidefun(counter)
+        resetTimer();
         pressed = false;
 
     }
@@ -95,8 +95,8 @@ slider.addEventListener("touchend", (e) => {
 slider.addEventListener("touchmove", (e) => {
     if (Ppressed) {
         isLeftToRight(PstartX, PendX);
-        
-
+        slidefun(counter)
+        resetTimer();
         Ppressed = false;
 
     }
@@ -106,11 +106,10 @@ function isLeftToRight(a,b){
     if(a-b > 0){
         LeftToRight = false;
         counter++;
-    }else{
+    } else if (a - b < 0) {
         LeftToRight = true;
         counter--;
     }
 
-    slidefun(counter)
-    resetTimer();
+    
 }
