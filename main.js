@@ -52,7 +52,6 @@ let endX = 0;
 let LeftToRight = false;
 
 slider.addEventListener("mousedown", (e) => {
-    pressed = true;
     startX = e.offsetX;
     slider.style.cursor = "grabbing"
 
@@ -60,16 +59,16 @@ slider.addEventListener("mousedown", (e) => {
 
 slider.addEventListener("mouseup", (e) => {
     slider.style.cursor = "default"
-    pressed = false;
     endX = e.offsetX;
+    pressed = true;
 
 })
 
 slider.addEventListener("mousemove", (e)=>{
     if(pressed){
         isLeftToRight(startX, endX);
-        slidefun(counter)
-        resetTimer();
+        console.log(startX)
+        console.log(endX)
         pressed = false;
 
     }
@@ -96,8 +95,8 @@ slider.addEventListener("touchend", (e) => {
 slider.addEventListener("touchmove", (e) => {
     if (Ppressed) {
         isLeftToRight(PstartX, PendX);
-        slidefun(counter)
-        resetTimer();
+        
+
         Ppressed = false;
 
     }
@@ -111,4 +110,7 @@ function isLeftToRight(a,b){
         LeftToRight = true;
         counter--;
     }
+
+    slidefun(counter)
+    resetTimer();
 }
